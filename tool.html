@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=UTF-8>
+    <meta name=viewport content="width=device-width,initial-scale=1">
+    <title>Speech to Text Tool </title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+	<div id="container">
+		<header> <img src= "img/Logo.png" width="250" height="250"> </header>
+		<h1> Speech to Text Convertor</h1>
+		<span id="unsupported" class="support hidden">Speech API Not Supported</span>
+		<h2>Record Your Speech </h2>
+		<div id="options">
+			<span>Results:</span>
+			<label>
+			<input type=radio name=recognition-type value=final> Final speech
+			</label>
+			<label>
+			<input type=radio name=recognition-type value=interim checked> As you speak
+			</label>
+		</div>
+		<br/>
+		<br/>
+		<textarea id="textbox" readonly> </textarea>
+		<br/>
+		<br/>
+		<button id="clear" >Clear Text</button>
+	
+	
+		<div class="button-wrapper">
+		<div id="speechButton" class="start"></div>
+		</div>
+		<div id="log">Click to start speaking</div>
+	
+		
+		<h2>Saved Speech </h2>	
+		<button id="clear_saved" >Clear Text</button>
+		<br/>
+		<br/>
+		<textarea id="savedbox"> </textarea>
+		
+		</div>
+			
+			
+	<script> 
+	var textbox = document.getElementById("textbox");
+	var final_textbox = document.getElementById("savedbox");
+	var clear_saved = document.getElementById("clear_saved");
+	var start = document.getElementById('speechButton');
+	var clear = document.getElementById("clear");
+	var log = document.getElementById('log');
+	var speaking = false; 
+	
+	
+  ////// Is speech supported?
+        window.SpeechRecognition = window.SpeechRecognition ||
+            window.webkitSpeechRecognition ||
+            null;
+        if (window.SpeechRecognition === null) {
+            document.getElementById('unsupported').classList.remove('hidden');
+            start.classList.add('hidden');
+        } else {
+            var recognizer = new window.SpeechRecognition();
+            // Recogniser doesn't stop listening even if the user pauses
+            recognizer.continuous = true;
+            // Start recognising
+            recognizer.onresult = function(event) {
+            textbox.textContent = '';
+            for (var i = event.resultIndex; i < event.results.length; i++) {
+				if (event.results[i].isFinal) {
+					if (final_textbox == "") {
+						final_textbox.textContent = event.results[i][0].transcript;
+						}
+					else{
+						final_textbox.textContent += event.results[i][0].transcript;
+						}
+					}
+					
+				else {
+                     textbox.textContent += event.results[i][0].transcript;
+                    }
+                }
+            };
+           
+
+            start.addEventListener('click', function() {
+                //toggle
+                if (!speaking) {
+                    speaking = true;
+                    start.classList.toggle('stop');
+                    // Set if we need interim results
+                    recognizer.interimResults = document.querySelector('input[name="recognition-type"][value="interim"]').checked;
+                    try {
+                        recognizer.start();
+                        log.innerHTML = 'Start speaking now<br/>Click to stop';
+                    } catch (ex) {
+                        log.innerHTML = 'Recognition error:<br/>' + ex.message;
+                    }
+                } else {
+                    recognizer.stop();
+                    start.classList.toggle('stop');
+                    log.innerHTML = 'Recognition stopped<br/>Click to speak';
+                    speaking = false;
+                }
+            });
+            clear.addEventListener('click', function() {
+                textbox.textContent = '';
+            });
+			
+			clear_saved.addEventListener('click', function() {
+                final_textbox.textContent = '';
+            });
+        }
+
+    </script>
+</body>
+
+</html>
