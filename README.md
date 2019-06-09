@@ -23,11 +23,14 @@ Figure 2 - Simple HTML Structure
 
 <h2> Step 2 - Create the Non Supporting Warning </h2> 
 
-The tools that I used to help recogonise the speech is the SpeechRecognition Web Speech API. However, this API is not supported by some browsers, therefore a script had to be created to inform the user whether their browser is able to support the API. 
+The tools that I used to help recognise the speech is the SpeechRecognition Web Speech API. However, this API is not supported by some browsers, therefore a script had to be created to inform the user whether their browser is able to support the API. 
 
-The script below checks to see if the broswer is able to add the SpeechRecognition object and if it can not, then the Javascript will remove the "hidden" tag from the CSS of the hidden container. 
+The script below checks to see if the browser is able to add the SpeechRecognition object and if it can not, then the Javascript will remove the "hidden" tag from the CSS of the hidden container and so show the warning that was created in the html layout.
+
 
 Figure 3 - Support Javascript
 <img src="support_javascript.JPG">
+
+<h2> </h2>
 
 
