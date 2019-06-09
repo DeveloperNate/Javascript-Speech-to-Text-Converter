@@ -1,6 +1,6 @@
 <h1> Creating a Speech to Text Converter Website</h1> 
 
-This is the documentation on how I create a basic tool that can convert speech to text. The basic feature of the website are below :
+This is the documentation on how I create a basic tool that can convert speech to text. The final website can be seen in the file "tool.html". The basic feature of the website are below :
 
 <ul>
   <li>The user is able to turn the tool on or off </li>
