@@ -15,7 +15,7 @@ This is the documentation on how I create a basic tool that can convert speech t
 
 <h2> Step 1 - Create the Layout - HTML/CSS </h2> 
 
-I first created a simple layout with one container and all further tools added within that container.  
+I first created a simple layout with one container and all further tools added within that container. The full Html code can be found in the file tool.html and the CSS code can be found in the file "style.css".   
 
 Figure 2 - Simple HTML Structure 
 
@@ -33,7 +33,7 @@ Figure 3 - Support Javascript
 
 <h2> Step 3 - Getting all Variables from the Html Form </h2>
 
-I then put all the variables from the HTML form  using the script below. 
+I then pulled all the variables from the HTML form into to Javascript by using the script below. 
 <img src="variables.JPG">
 
 <h2> Step 4 -Convert the Speech to text </h2> 
