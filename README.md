@@ -31,6 +31,13 @@ The script below checks to see if the browser is able to add the SpeechRecogniti
 Figure 3 - Support Javascript
 <img src="support_javascript.JPG">
 
-<h2> </h2>
+<h2> Getting all Variables from the Html Form </h2>
 
+I then put all the variables from the HTML form  using the script below. 
+<img src="variables.JPG">
 
+<h2> Convert the Speech to text </h2> 
+
+Once the browser support has been established, the SpeechRecognition object is then added to a variable. The continuous property is added so that continuous results are returned rather than a single result. Then a function is added that will be called when an speech event has been recognised. This function will then add each speech elements to the textbox variable.  
+ 
+<img src="convert_speech.JPG">
