@@ -42,4 +42,15 @@ Once the browser support has been established, the SpeechRecognition object is t
  
 <img src="convert_speech.JPG">
 
-<h2> Step 5 -Convert the Speech to text </h2> 
+<h2> Step 5 - Creating the button that Starts the Speech Converter</h2> 
+
+A function was created that was called when the start button was clicked.This had a flag called speaking, if speaking is False, then the following actions will take place:
+<ul> 
+  <li> Change the flag to True</li>
+  <li> Change the CSS style of the start button to the stop style</li>
+  <li> check to see which mode of recording the user has selection </li> 
+  <li> Attempt to turn on the SpeechRecognition object</li>
+  <li> IF successful, change the html of the log container in the html code</li>
+  <li> If unsuccessful, the error message will be displayed the log container in the html code</li>
+</ul>
+<img src="user_button.JPG">
