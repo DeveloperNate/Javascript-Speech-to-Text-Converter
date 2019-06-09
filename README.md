@@ -46,11 +46,11 @@ Once the browser support has been established, the SpeechRecognition object is t
 
 A function was created that was called when the start button was clicked.This had a flag called speaking, if speaking is False, then the following actions will take place:
 <ul> 
-  <li> Change the flag to True</li>
-  <li> Change the CSS style of the start button to the stop style</li>
-  <li> check to see which mode of recording the user has selection </li> 
-  <li> Attempt to turn on the SpeechRecognition object</li>
-  <li> IF successful, change the html of the log container in the html code</li>
-  <li> If unsuccessful, the error message will be displayed the log container in the html code</li>
+  <li> Change the flag to True. </li>
+  <li> Change the CSS style of the start button to the stop style. </li>
+  <li> Check to see which mode of recording the user has selection.  </li> 
+  <li> Attempt to turn on the SpeechRecognition object. </li>
+  <li> If successful, change the HTML code of the log container in the html file. </li>
+  <li> If unsuccessful, the error message will be displayed in the log container in the html code.</li>
 </ul>
 <img src="user_button.JPG">
